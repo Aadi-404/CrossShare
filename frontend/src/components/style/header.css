@@ -1,0 +1,67 @@
+* {
+  font-family: "Fira Sans", sans-serif;
+  font-family: "Piazzolla", serif;
+  margin: 0px;
+  padding: 0px;
+  /* background-color: rgb(221, 90, 90); */
+}
+.html {
+  font-size: 10 px;
+  /* background-color: brown; */
+}
+:root {
+  --nav: rgb(90, 83, 90);
+  --nav_hover: rgb(212, 156, 122);
+}
+.Header_container {
+  margin: 2rem 0;
+  background-color: var(--nav);
+}
+
+.navbar_container {
+  background-color: var(--nav);
+
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.nav_elements {
+  width: 90px;
+  margin: 15px 15px;
+  list-style: none;
+  /* border: 2px solid black; */
+  background-color: var(--nav);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.nav_elements a {
+  background-color: var(--nav);
+  color: white;
+  /* text-decoration: underline; */
+  text-decoration-color: rgb(255, 255, 255);
+}
+.nav_elements :hover {
+  /* display: relative; */
+  position: relative;
+  /* transform: translate(2px,2px); */
+  transform: scale(1.05, 1.05);
+  /* left: 2px;
+  top: 2px; */
+
+  text-decoration: underline;
+}
+.title {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: brown;
+  width: 10rem;
+  margin-left: 1rem;
+  margin-right: auto;
+  list-style: none;
+}

@@ -1,0 +1,14 @@
+.copyright{
+  text-align: center;
+  background-color: rgb(63, 63, 63);
+  color: white;
+}
+
+.msg{
+    text-align: center;
+    color:black;
+    
+}
+.msg p {
+    color: red;
+}

@@ -1,0 +1,96 @@
+/* *{
+    background-color: red;
+} */
+.mid_container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.drag_container{
+    margin-top: 60px;
+    margin-left: 100px;
+    /* background-color: royalblue; */
+    
+}
+
+.drag_zone{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 5px solid rgb(129, 134, 134);
+    height: 250px;
+    width: 450px;
+    border-radius: 30px;
+    transition: all .2s ease;
+    /* background-color: chocolate; */
+}
+.img_container{
+    background-color: inherit;
+    width: 75px;
+    height: 100px;
+    position: relative;
+}
+.img_container img{
+    position: absolute;
+    /* filter: sepia(.3); */
+    transform-origin: bottom;
+    filter: grayscale(.85);
+
+    object-fit: cover;
+    background-color: inherit;
+    width: 65px;
+    height: 90px;
+    transition: transform 300ms ease-in-out;
+}
+
+.drag_line{
+    background-color: inherit;
+    font-weight: 600;
+}
+.img_container.right,.img_container.left{
+    /* filter: grayscale(0.5); */
+
+}
+.dragged{
+    background-color:rgb(233, 233, 233);
+    border: 5px solid rgb(117, 117, 117);
+}
+.dragged .img_container .left{
+    transform: rotate(-15deg) translateX(-10px) scale(0.9);
+    filter: grayscale(0.4) blur(1);
+}
+.dragged .img_container .right{
+    transform:  rotate(15deg) translateX(10px) scale(0.9);
+    filter: grayscale(0.4)  blur(.5);
+    /* filter: sepia(); */
+}
+.dragged .img_container .center{
+    z-index: 2;
+    transform: translateY(-1    px);
+}
+
+#fileInput{
+    visibility: hidden;
+}
+.browsebtn{
+    color: blue;
+    cursor: pointer;
+}
+.share_help{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text_cont{
+    text-align: center;
+}
+.url{
+    height: 35px;
+    border: 5px solid red;
+}
+.link{
+    border: 5px solid blue;
+    height: 30px;
+    
+}
