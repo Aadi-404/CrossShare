@@ -1,5 +1,6 @@
 // import { logDOM } from "@testing-library/react";
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 // import React from "react";
 import "../components/style/middle.css";
@@ -12,14 +13,12 @@ export const Middle = () => {
   const fileInput = document.getElementById("fileInput");
 
   const [cssClass, setCssClass] = useState(["drag_zone"]);
-
+  const [unique, setunique] = useState(["loading wait "]);
 
   const InDrag = (e)=>{
     // console.log("You are in ")
     e.preventDefault();
     // e.stopPropagation();
-
-
     if(!cssClass.includes("dragged")){
       setCssClass(
         [...cssClass,"dragged"]);
@@ -39,15 +38,12 @@ export const Middle = () => {
     if(cssClass.includes("dragged")){
       setCssClass(["drag_zone"]);
     }
-    // console.log(e.dataTransfer.files.length);
     const files = e.dataTransfer.files;
     fileInput.files= files;
     // console.log(fileInput.files);
-    // console.log("drop");
     fileSend();
-
-
   }
+
   const fileSend= ()=>{
     let time = new Date();
     const now = time.getFullYear() + "-"+ time.getMonth() + "-"+ time.getDate() +" "+
@@ -55,40 +51,34 @@ export const Middle = () => {
     // const now = time.toString();
     // console.log(now);
     // const fileBundle = {
-    //   msg : "demo",
-    //   file : fileInput.files[0],
-    //   time_now : now
+    //   title : "demo",
+    //   file : file[0][0],
+    //   created_at : now
     // }
     let data = new FormData();
-    data.append('msg','demo');
-    // data.append("file",fileInput.files[0])
+    data.append('title',fileInput.files[0].name);
+    data.append("file",fileInput.files[0]);
     data.append("created_at",now);
     const url = `http://127.0.0.1:8000/api/file/`;
     const config = {
-      headers: { 'content-type': 'multipart/form-data' }
+      headers: { 'content-type': 'application/json' }
   }
 
-    // console.log("here i'm ready to upload")
-    // console.log(fileBundle);
     console.log(data);
     axios.post(url,data,config)
     .then(res=>{
-      console.log("res")
+      // console.log("res")
       console.log(res.data);
+      // let downUrl = res.
+      setunique([res.data.uuid])
+      
     }).catch(err =>{
       console.log("error")
       console.log(err);
     })
-
   }
 
-  const fileGet=()=>{
-    axios.get(`http://127.0.0.1:8000/api/5`).then(resp=>{
-      console.log(resp.data);
-    }).error(err=>{
-      console.log(err);
-    })
-  }
+
 
   return (
     <>
@@ -136,7 +126,7 @@ export const Middle = () => {
             </div>
           </div>
         <div className='url'>
-          Loading
+        <Link to={"/download/"+unique}>{"Download Link"}</Link>
         </div>
         <div className='link'></div>
         </div>

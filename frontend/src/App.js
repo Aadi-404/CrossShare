@@ -2,6 +2,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Contact } from "./components/Contact";
 import { Middle } from "./components/Middle";
+import {Download} from "./components/Download";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -15,6 +16,8 @@ function App() {
       <Router>
         <Header />
         <Routes>
+          
+        <Route exact path="/download/:unique" element={<Download />} />
         <Route exact path="/" element={<Middle />} />
           <Route exact path="/contact" element={<Contact />} />
           
